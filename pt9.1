@@ -1,0 +1,13 @@
+import random
+import numpy as np
+numbers = np.array([-1, 1.2, 3, 10, 13.4, 15, 18.9])
+value = float(input("Введіть значення для пошуку: "))
+indices = np.where(numbers == value)
+print(f"Індекси елементів, що дорівнюють {value}: {indices[0]}")
+sum1 = sum(numbers[i] for i in range(0, len(numbers), 2))
+print("Сума елементів масиву з парними індексами:",sum1)
+a=random.randint(0,100)
+b=random.randint(0,100)
+c=random.randint(0,100)
+numbers = np.append(numbers, [ a,b,c])
+print(numbers)

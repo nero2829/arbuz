@@ -1,0 +1,17 @@
+import random
+import numpy as np
+mas=np.zeros((3,3),dtype=int)
+for i in range(3):
+    for j in range(3):
+        mas[i][j]=np.random.randint(0,7)
+print(mas)
+suma = 0
+suma1 = 0
+suma2 = 0
+for i in range(3):
+    suma+=mas[i][0]
+    suma1+=mas[i][1]
+    suma2+=mas[i][2]
+print("Сума прешого стовпчика:",suma,"Сума другог стовпчика:",suma1,"Сума третього стовпчика:",suma2)
+mas[1][1] = -4
+print(mas)
