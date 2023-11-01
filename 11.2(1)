@@ -1,0 +1,3 @@
+auto_1={"Hitchenko":"AM8389AC", "Budkivskiu":"ВС6040СP", "Kudrik":"AC1533BE", "Ogiria":"CB8136AX", "Yanakov":"AM8814AB"}
+sorted_auto=dict(sorted(auto_1.items(), reverse=True))
+print(sorted_auto)

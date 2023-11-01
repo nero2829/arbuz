@@ -1,0 +1,8 @@
+f=open("auto3.txt", 'w')
+auto_1={"Hitchenko":"AM8389AC", "Budkivskiu":"ВС6040СP", "Kudrik":"AC1533BE", "Ogiria":"CB8136AX", "Yanakov":"AM8814AB"}
+for key, value in auto_1.items():
+    line = f"{key}:{value}\n"
+    f.write(line)
+f.close()
+
+

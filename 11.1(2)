@@ -1,0 +1,18 @@
+f = open("nomer.txt", 'r')
+s = f.readlines()
+f.close()
+results = {"life": [],"kiev": []}
+for elem in s:
+    try:
+        value = float(elem.strip())
+        if value > 380700000000:
+            results["life"].append(elem.strip())
+        else:
+            results["kiev"].append(elem.strip())
+    except ValueError:
+        print("Invalid number format:", elem)
+max1 = max(results, key=lambda k: len(results[k]))
+print((max1, len(results[max1])))
+    
+
+   
