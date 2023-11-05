@@ -1,0 +1,9 @@
+import math
+x=float(input("Введіть довжину сторони п'ятикутника"))
+rv=lambda x:x/(2*math.tan(math.pi/5))
+ro=lambda x:x/(2*math.sin(math.pi/5))
+radiusvps=rv(x)
+radiusops=ro(x)
+print("Радіус вписаного кола в п'ятикутник:",round(radiusvps,2))
+print("Радіус oписаного кола в п'ятикутник:",round(radiusops,2))
+

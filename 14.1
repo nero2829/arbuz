@@ -1,0 +1,15 @@
+import random
+def obr(N):
+    if N==0:
+        return 0
+    else:
+        rn=random.randint(3,30)
+        return rn+obr(N-1)
+N=int(input("Введіть кількістть чисел"))
+res=obr(N)
+print(f"Сума випадкових чисел : {res}")
+    
+
+        
+
+    

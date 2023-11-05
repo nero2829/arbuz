@@ -1,0 +1,21 @@
+import pickle
+import random
+fname="result1"
+A=set()
+while len(A)<7:
+    g = random.randint(0, 1000)
+    A.add(g)
+A=list(A)
+B=set()
+for i in range(1,1000,8):
+    if i%17==0:
+        B.add(i)
+B=list(B)
+C=list(set(A+B))
+f=open(fname, 'wb')
+pickle.dump(C,f)
+f.close()
+f=open('result1', 'rb')
+C2=pickle.load(f)
+print(C2[:8])
+

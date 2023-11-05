@@ -1,0 +1,21 @@
+import csv
+def csv_writer(data, path):
+    with open(path, "w", newline='') as csv_file:
+        writer = csv.writer(csv_file, delimiter=',')
+        for line in data:
+            writer.writerow(line)
+if __name__ == "__main__":
+    data = ["author,book".split(","),
+            "Ilif and Petrov,The Twelve Chairs".split(","),
+            "Oscar Wilde,The Picture of Dorian Gray".split(","),
+            "Michail Bulgakov,A dog's heart".split(","),
+            "Jules Verne,Vingt mille lieues sous les mers".split(",")]
+    path = "output.csv"
+    csv_writer(data, path)
+def csv_dict_reader(f_obj):
+    reader = csv.DictReader(f_obj, delimiter=',')
+    for line in reader:
+        print(line["author"],":",line["book"]),
+if __name__ == "__main__":
+    with open("output.csv") as f_obj:
+        csv_dict_reader(f_obj)

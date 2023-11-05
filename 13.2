@@ -1,0 +1,9 @@
+import json
+data={'a': 35, 'b': 33, 'c': 9, 'd': 18, 'e': 39, 'f': 34, 'g': 7, 'h': 26, 'i': 35, 'j': 10, 'k': 37, 'l': 38, 'm': 8, 'n': 24, 'o': 37, 'p': 14, 'q': 39, 'r': 12, 's': 26, 't': 33, 'u': 19, 'v': 4, 'w': 24, 'x': 22, 'y': 1, 'z': 4}
+with open("user1.json", "w") as write_file:
+    json.dump(data, write_file)
+with open("user1.json", "r") as read_file:
+    data = json.load(read_file)
+if __name__ == '__main__':
+    total = sum(data[x] for x in data)
+print(total)

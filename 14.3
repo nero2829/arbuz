@@ -1,0 +1,18 @@
+import math
+def parn(*args):
+    s=1
+    for elem in args:
+        if elem%2==0:
+         s*=elem
+    return s
+def nepar(*args):
+    s=1
+    for elem in args:
+        if elem%2==1:
+            s+=elem
+    return s
+a=int(input("Введіть число"))
+b= int(input("Введіть число"))
+c= int(input("Введіть число"))
+print(parn(a,b,c))
+print(nepar(a,b,c))
