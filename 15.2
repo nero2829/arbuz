@@ -1,0 +1,19 @@
+class Phone:
+    def __init__(self,model1,year1):
+        self.model=str(model1)
+        self.year=int(year1)
+    def display(self):
+        print("Model=",self.model," Year=",self.year)
+class Mobile(Phone):
+    def __init__(self,model1,year1,memory1):
+        self.model=str(model1)
+        self.year=int(year1)
+        self.memory=str(memory1)
+    def display(self):
+        print("Model=", self.model," Year=",self.year ,"Memory size=",self.memory)
+if __name__ == "__main__":
+    A=Phone("OnePlus 7 Pro",2019)
+    A.display()
+    B=Mobile("Samsung Galaxy A24",2023,"128Gb")
+    B.display()
+
