@@ -1,0 +1,33 @@
+import tkinter as tk
+import math
+def dil(x, y):
+    if x%y==0:
+        return y
+    else:
+        return dil(y,x%y)
+def action1():
+    text=entry1.get()
+    numbers=text.split()
+    if len(numbers)==2:
+        x=float(numbers[0])
+        y=float(numbers[1])
+        res=dil(x, y)
+        res_str=str(res)
+        entry2.delete(0, tk.END)
+        entry2.insert(0, res_str)
+    else:
+        entry2.delete(0, tk.END)
+        entry2.insert(0, "Будь ласка, введіть дві цифри, через пробіл.")
+win=tk.Tk()
+entry1=tk.Entry()
+lab1=tk.Label(width=50, text="Введіть число")
+entry2=tk.Entry()
+button1=tk.Button(master=win, text="Обчислити", command=action1)
+lab1.pack()
+entry1.pack()
+button1.pack()
+entry2.pack()
+win.mainloop()
+
+
+
