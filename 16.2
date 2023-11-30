@@ -1,0 +1,31 @@
+import csv
+import requests
+from bs4 import BeautifulSoup
+def read(file_path, delimiter='\t'):
+    data = []
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file, delimiter=delimiter)
+        for row in reader:
+            data.append(row)
+    return data
+def count_links_with_extensions(page, data):
+    count = 0
+    for ext in data:
+        selector = f'a[href$="{ext}"]'
+        links = page.select(selector)
+        count += len(links)
+    return count
+if __name__ == "__main__":
+    file_path = r"D:\dteu\vkn\2023.11\16 pt\img16.txt"
+    data = read(file_path)
+    web_page_url = input("Введите URL: ")
+    response = requests.get(web_page_url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        links_count = count_links_with_extensions(soup, data)
+        print(f"Number of links with specified extensions: {links_count}")
+    else:
+        print(f"Failed to fetch the web page: {web_page_url}")
+
+        
+            
