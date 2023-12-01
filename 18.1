@@ -1,0 +1,14 @@
+import numpy as np
+import matplotlib.pyplot as plt
+def func(x):
+    return x**4-x**2*np.sin(x)
+x_zna=np.linspace(-7, 7, 1000)
+y_zna=func(x_zna)
+plt.plot(x_zna, y_zna, color='purple', linestyle='dashed', label=r'$y=x^4-x^2\sin(x)$')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('$y=x^4-x^2\sin(x)$')
+plt.legend()
+plt.savefig('grafik.tiff', format='tiff')
+plt.show()
+

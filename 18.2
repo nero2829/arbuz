@@ -1,0 +1,38 @@
+import requests
+from bs4 import BeautifulSoup
+import matplotlib.pyplot as plt
+def count_pes(url, keyword):
+    try:
+        response=requests.get(url)
+        soup=BeautifulSoup(response.text, 'html.parser')
+        text_cont=soup.get_text()
+        per=text_cont.lower().count(keyword.lower())
+        return per
+    except Exception as e:
+        print(f"Error processing {url}: {e}")
+        return 0
+def main():
+    websites = [
+        "https://en.wikipedia.org/wiki/Computer_programming",
+        "https://en.wikipedia.org/wiki/Python_(programming_language)",
+        "https://en.wikipedia.org/wiki/Procedural_programming",
+        "https://en.wikipedia.org/wiki/Object-oriented_programming",
+        "https://en.wikipedia.org/wiki/Object_(computer_science)",
+        "https://en.wikipedia.org/wiki/Database",
+        "https://en.wikipedia.org/wiki/Computer_science",
+    ]
+    keyword="programming"
+    per_list=[]
+    base_url="https://en.wikipedia.org/wiki/"
+    short_web=[site.replace(base_url, '') for site in websites]
+    for site in websites:
+        pes = count_pes(site, keyword)
+        per_list.append(pes)
+    plt.bar(short_web, per_list, color='purple')
+    plt.ylabel('Знайденно слів')
+    plt.title(f'Знайденно "{keyword}" слово на сайтах')
+    plt.xticks(rotation=45, ha='right',fontsize=8)  
+    plt.tight_layout() 
+    plt.show()
+if __name__ == "__main__":
+    main()
